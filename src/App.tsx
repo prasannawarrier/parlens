@@ -83,7 +83,7 @@ const Login: React.FC = () => {
       <div className="w-full max-w-sm space-y-12 animate-in fade-in zoom-in-95 duration-700">
         <div className="space-y-4">
           <img
-            src="/parlens-pwa/pwa-512x512.png"
+            src={`${import.meta.env.BASE_URL}pwa-512x512.png`}
             alt="Parlens"
             className="mx-auto h-24 w-24 rounded-[22%] shadow-2xl shadow-[#007AFF]/20"
           />
