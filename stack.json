@@ -1,0 +1,10 @@
+{
+  "name": "parlens-pwa",
+  "title": "parlens-pwa",
+  "description": "",
+  "commands": [
+    "npx"
+  ],
+  "uri": "git+https://github.com/parlens-user/parlens-pwa.git",
+  "tech": []
+}
