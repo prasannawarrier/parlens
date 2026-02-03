@@ -2762,7 +2762,7 @@ const CreateListingModal: React.FC<any> = ({ editing, spotStatuses, onClose, onC
                 ) : (
                     <div className="space-y-6">
                         <div className="flex justify-between items-center">
-                            <h3 className="font-bold dark:text-white">Floors & Spots</h3>
+                            <h3 className="font-bold text-zinc-900 dark:text-white">Floors & Spots</h3>
                             <select
                                 className="pl-3 pr-8 py-2 bg-zinc-100 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-xl text-zinc-900 dark:text-white text-sm font-medium appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M2%204l4%204%204-4z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.75rem_center]"
                                 value={formData.currency}
@@ -2840,7 +2840,7 @@ const CreateListingModal: React.FC<any> = ({ editing, spotStatuses, onClose, onC
                         {/* New Floor Form */}
                         {showNewFloorForm ? (
                             <div className="p-4 border border-blue-500/30 bg-blue-50/50 dark:bg-blue-900/10 rounded-2xl space-y-4">
-                                <h4 className="font-bold text-sm dark:text-white">New Floor Details</h4>
+                                <h4 className="font-bold text-sm text-zinc-900 dark:text-white">New Floor Details</h4>
                                 <div className="space-y-1">
                                     <label className="text-xs font-bold uppercase text-zinc-400 ml-1">Floor Name</label>
                                     <input className="w-full p-2 bg-white dark:bg-white/5 rounded-lg text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10" placeholder="e.g. B1, Ground" value={newFloor.name} onChange={e => setNewFloor({ ...newFloor, name: e.target.value })} />
@@ -3161,7 +3161,7 @@ const SpotDetailsModal: React.FC<any> = ({ spot, listing, status, onClose, isMan
                             <button onClick={() => setShowLogs(false)} className="p-2 -ml-2 rounded-full text-zinc-600 dark:text-white hover:bg-black/5 dark:hover:bg-white/10">
                                 <ArrowLeft size={24} />
                             </button>
-                            <h3 className="font-bold text-lg dark:text-white">Status Log</h3>
+                            <h3 className="font-bold text-lg text-zinc-900 dark:text-white">Status Log</h3>
                             <div className="w-10"></div> {/* Spacer for alignment */}
                         </div>
 
@@ -3253,7 +3253,7 @@ const SpotDetailsModal: React.FC<any> = ({ spot, listing, status, onClose, isMan
                             <X size={20} />
                         </button>
 
-                        <h2 className="text-xl font-bold dark:text-white pr-8 text-left">{spot.short_name || spot.content}</h2>
+                        <h2 className="text-xl font-bold text-zinc-900 dark:text-white pr-8 text-left">{spot.short_name || spot.content}</h2>
 
                         {/* Auth QR Code - Only visible to managers/owners */}
                         {isManager && (
@@ -3277,7 +3277,7 @@ const SpotDetailsModal: React.FC<any> = ({ spot, listing, status, onClose, isMan
                         <div className="grid grid-cols-2 gap-3 text-left">
                             <div className="p-4 bg-zinc-50 dark:bg-white/5 rounded-2xl">
                                 <div className="text-xs font-bold uppercase text-zinc-400 mb-1">Rate</div>
-                                <div className="text-lg font-bold dark:text-white tabular-nums">{getCurrencySymbol(spot.rates?.currency || listing.rates?.car?.currency || 'USD')}{spot.rates?.hourly || listing.rates?.[spot.type]?.hourly}/hr</div>
+                                <div className="text-lg font-bold text-zinc-900 dark:text-white tabular-nums">{getCurrencySymbol(spot.rates?.currency || listing.rates?.car?.currency || 'USD')}{spot.rates?.hourly || listing.rates?.[spot.type]?.hourly}/hr</div>
                             </div>
                             <div className="p-4 bg-zinc-50 dark:bg-white/5 rounded-2xl">
                                 <div className="text-xs font-bold uppercase text-zinc-400 mb-1">Status</div>
