@@ -79,8 +79,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className={`h-[100dvh] bg-zinc-50 dark:bg-black p-6 text-zinc-900 dark:text-white text-center flex flex-col items-center justify-center transition-colors duration-300 relative ${view === 'backup' ? 'overflow-y-auto' : 'overflow-hidden'}`} style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}>
-      <div className="w-full max-w-sm space-y-12 animate-in fade-in zoom-in-95 duration-700">
+    <div className="h-[100dvh] bg-zinc-50 dark:bg-black p-6 text-zinc-900 dark:text-white text-center flex flex-col items-center transition-colors duration-300 relative overflow-y-auto no-scrollbar" style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}>
+      <div className="w-full max-w-sm space-y-12 animate-in fade-in zoom-in-95 duration-700 my-auto">
         <div className="space-y-4">
           <img
             src={`${import.meta.env.BASE_URL}pwa-512x512.png`}
