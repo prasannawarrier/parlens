@@ -3121,7 +3121,7 @@ const SpotDetailsModal: React.FC<any> = ({ spot, listing, status, onClose, isMan
                     <button onClick={() => setIsEditing(false)} className="absolute top-4 right-4 p-2 rounded-full text-zinc-400 hover:text-zinc-600 dark:text-white/40 dark:hover:text-white/60">
                         <X size={20} />
                     </button>
-                    <h2 className="text-xl font-bold dark:text-white">Edit Spot</h2>
+                    <h2 className="text-xl font-bold text-zinc-900 dark:text-white">Edit Spot</h2>
                     <div className="space-y-2 text-left">
                         <label className="text-xs font-bold uppercase text-zinc-400">Name / Short Code</label>
                         <input className="w-full p-3 bg-zinc-100 dark:bg-white/5 rounded-xl dark:text-white" value={editData.short_name} onChange={e => setEditData({ ...editData, short_name: e.target.value })} placeholder={`#${spot.spot_number} `} />
