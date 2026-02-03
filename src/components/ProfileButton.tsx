@@ -72,7 +72,14 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({ setHistorySpots, o
     useEffect(() => {
         onOpenChange?.(isOpen);
     }, [isOpen, onOpenChange]);
-    const [profile, setProfile] = useState<any>(null);
+    const [profile, setProfile] = useState<any>(() => {
+        try {
+            const saved = localStorage.getItem('parlens_user_profile');
+            return saved ? JSON.parse(saved) : null;
+        } catch (e) {
+            return null;
+        }
+    });
     const [decryptedLogs, setDecryptedLogs] = useState<any[]>([]);
     const [showHistoryOnMap, setShowHistoryOnMap] = useState(false);
 
@@ -162,11 +169,13 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({ setHistorySpots, o
                 if (event) {
                     try {
                         const content = JSON.parse(event.content);
-                        setProfile({
+                        const newProfile = {
                             name: content.name || content.display_name || 'Nostr User',
                             npub: nip19.npubEncode(pubkey),
                             picture: content.picture
-                        });
+                        };
+                        setProfile(newProfile);
+                        localStorage.setItem('parlens_user_profile', JSON.stringify(newProfile));
                     } catch (e) {
                         console.error('Error parsing profile:', e);
                     }
@@ -494,7 +503,11 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({ setHistorySpots, o
                                                     const signedEvent = await signEvent(metadataEvent);
                                                     await Promise.allSettled(pool.publish(DEFAULT_RELAYS, signedEvent));
                                                     // Optimistic update for instant feedback
-                                                    setProfile((prev: any) => ({ ...prev, name: editedName.trim() }));
+                                                    setProfile((prev: any) => {
+                                                        const updated = { ...prev, name: editedName.trim() };
+                                                        localStorage.setItem('parlens_user_profile', JSON.stringify(updated));
+                                                        return updated;
+                                                    });
                                                     setEditingUsername(false);
                                                 } catch (e) {
                                                     console.error('Failed to update username:', e);

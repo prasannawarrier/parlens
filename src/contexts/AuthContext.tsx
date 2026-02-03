@@ -106,15 +106,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         // Publish metadata if creating account
         if (method === 'create' && username && privateKey) {
             try {
+                const profileData = {
+                    name: username,
+                    display_name: username,
+                    picture: `https://api.dicebear.com/7.x/bottts/svg?seed=${key}`
+                };
+
+                // Cache profile locally for immediate UI update
+                localStorage.setItem('parlens_user_profile', JSON.stringify(profileData));
+
                 const event = finalizeEvent({
                     kind: 0,
                     created_at: Math.floor(Date.now() / 1000),
                     tags: [],
-                    content: JSON.stringify({
-                        name: username,
-                        display_name: username,
-                        picture: `https://api.dicebear.com/7.x/bottts/svg?seed=${key}`
-                    }),
+                    content: JSON.stringify(profileData),
                 }, privateKey);
 
                 await Promise.any([
