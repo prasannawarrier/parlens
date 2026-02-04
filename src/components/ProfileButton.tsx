@@ -872,6 +872,9 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({ setHistorySpots, o
                                                 <div className={`absolute top-1 bottom-1 w-5 h-5 rounded-full bg-white transition-transform ${hideNoParkings ? 'left-[calc(100%-1.25rem-0.25rem)]' : 'left-1'}`} />
                                             </button>
                                         </div>
+                                        <p className="text-xs text-zinc-400 dark:text-white/30 text-left ml-2 leading-relaxed mt-2">
+                                            Declutter your map by hiding markers you flag as no parking.
+                                        </p>
                                     </div>
 
                                     <div className="space-y-4">
