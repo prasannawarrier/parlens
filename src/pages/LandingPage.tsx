@@ -3296,12 +3296,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onRequestScan, initial
                                 setSelectedMarkerPopup(null);
                             }}
                         >
-                            <div className="flex flex-col items-center pointer-events-auto transition-transform">
-                                <div className="p-2 rounded-full bg-white dark:bg-zinc-800 border-2 border-orange-500">
-                                    <MapPin size={16} className="text-orange-500" />
-                                </div>
-                                <div className="w-0.5 h-2 bg-orange-500/50"></div>
-                            </div>
+                            <PinStyleMarker
+                                bgClass="bg-white dark:bg-zinc-800"
+                                borderClass="border-orange-500"
+                                stemClass="bg-orange-500/50"
+                                icon={<MapPin size={16} />}
+                                iconClass="text-orange-500"
+                            />
                         </Marker>
                     ))}
 
@@ -3408,11 +3409,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onRequestScan, initial
                                         </div>
                                     </div>
                                 )}
-                                {/* Pin icon */}
-                                <div className="p-2 rounded-full bg-white dark:bg-zinc-800 border-2 border-orange-500">
-                                    <MapPin size={16} className="text-orange-500" />
-                                </div>
-                                <div className="w-0.5 h-2 bg-orange-500/50"></div>
+                                <PinStyleMarker
+                                    bgClass="bg-white dark:bg-zinc-800"
+                                    borderClass="border-orange-500"
+                                    stemClass="bg-orange-500/50"
+                                    icon={<MapPin size={16} />}
+                                    iconClass="text-orange-500"
+                                />
                             </div>
                         </Marker>
                     )}
